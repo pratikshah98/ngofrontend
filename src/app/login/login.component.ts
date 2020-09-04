@@ -4,7 +4,7 @@ import { ngo } from '../classes/ngo';
 import { RegistrationService } from '../service/registeration.service';
 import { LoginService } from '../service/login.service';
 import { login } from '../classes/login';
-
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -38,6 +38,8 @@ ngo_password:string;
     //fd.append('ngo_email',this.ngo_email);
     //fd.append('ngo_password',this.ngo_password);
     //this._route.navigate(["/menu/tables"]);
+ 
+     
     this._loginser.validlogin(new login(this.ngo_email,this.ngo_password)).subscribe(
       (data:any)=>
       {

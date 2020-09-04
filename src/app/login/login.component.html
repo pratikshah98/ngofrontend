@@ -13,17 +13,27 @@
               <div class="form-holder form-holder-2">
                 <fieldset>
                   <legend>Your Email </legend>
-                  <input type="text" placeholder="Your Email" class="form-control" required name="ngo_email" [(ngModel)]="ngo_email">
+                  <!-- <input type="text" placeholder="Your Email" class="form-control" required name="ngo_email" [(ngModel)]="ngo_email"> -->
+                  <input  #email="ngModel" type="email" [(ngModel)]="ngo_email"  class="form-control" name="ngo_email" placeholder="Email" [class.is-invalid]="email.invalid && email.touched" required
+                  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 </fieldset>
-              </div>
+                                <span *ngIf="email.errors && (email.invalid || email.touched) && email.errors.pattern"  style="color:red; font-size:14px;">Please enter a valid email address.</span>
+                                <span *ngIf="email.errors && (email.invalid && email.touched) && email.errors.required" style="color:red; font-size:14px;">Email is required.</span>
+             </div>
             </div>
 
             <div class="form-row">
               <div class="form-holder form-holder-2">
                 <fieldset>
                   <legend>Your Password </legend>
-                  <input type="password" placeholder="Your Password" class="form-control" required [(ngModel)]="ngo_password" name="ngo_password">
+                  <!-- <input type="password" placeholder="Your Password" class="form-control" required [(ngModel)]="ngo_password" name="ngo_password"> -->
+                  <input  #password="ngModel" type="password" [(ngModel)]="ngo_password" class="form-control" name="ngo_password" placeholder="Password" [class.is-invalid]="password.invalid && password.touched" required>
+                  <!-- pattern="^(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"> -->
+               
                 </fieldset>
+                   <!-- <span *ngIf="password.errors && (password.invalid || password.touched) && password.errors.pattern">Please enter a minimum 8 to 10 character Password.</span> -->
+                   <span *ngIf="password.errors && (password.invalid && password.touched) && password.errors.required" style="color:red; font-size:14px;">Password is required.</span>
+
               </div>
             </div>
             <div>
@@ -38,7 +48,6 @@
             <br>
             <div>
               <p>Don't have an account?<a routerLink="/signup"><u> Register here</u></a></p>
-              <p>Don't have an account?<a routerLink="/menu"><u> Register here</u></a></p>
             </div>
 
 

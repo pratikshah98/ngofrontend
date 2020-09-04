@@ -20,6 +20,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MenuComponent } from './menu/menu.component';
 import { ChartComponent } from './chart/chart.component';
+import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+
 
 
 @NgModule({
@@ -31,6 +34,8 @@ import { ChartComponent } from './chart/chart.component';
     DataTableComponent,
     MenuComponent,
     ChartComponent,
+    ViewprofileComponent,
+    EditprofileComponent,
 
   ],
   imports: [
@@ -49,7 +54,7 @@ import { ChartComponent } from './chart/chart.component';
     
   ],
   providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }
 
   ],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -14,9 +15,14 @@ export class MenuComponent implements OnInit {
     .pipe(
       map(result => result.matches)
     );
-
-  constructor(private breakpointObserver: BreakpointObserver) { }
-  onclick(){}
+ngo_email:string;
+ngo_password:string;
+  constructor(private breakpointObserver: BreakpointObserver,private _route:Router) { }
+  onclick()
+  {
+    this._route.navigate(['']);
+ 
+  }
   onclickmenu(){}
   ngOnInit(): void {
   }

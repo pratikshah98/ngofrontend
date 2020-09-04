@@ -17,6 +17,7 @@ export class RegistrationService {
   private register2_url:string='http://localhost:3000/register2/';
   private nop:string='http://localhost:3000/nop/';
   private register3_url:string='http://localhost:3000/register3/';
+  private viewprofile:string='http://localhost:3000/viewprofile/';
   constructor(private _http:HttpClient) { }
   // getLogin(item:ngo){
   //   let body=JSON.stringify(item);
@@ -60,6 +61,11 @@ export class RegistrationService {
   // return this._http.post(this.forgetpassword,body,{headers:head1});
   // }
 
+  viewprofileByNgoId(ngo_email)
+  {
+    console.log(ngo_email);
+    return this._http.get(this.viewprofile + ngo_email);
+  }
 
 }
 
