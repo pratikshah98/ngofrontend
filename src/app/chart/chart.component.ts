@@ -13,10 +13,12 @@ transactiontotal_arr:Data[]=[];
 Player = [];  
 Run = [];  
 chart = [];  
+ngo_email:string;
   constructor(private transactionService:TransactionService) { }
 
   ngOnInit(): void {
-    this.transactionService.getAllTransactionTotalByNopName().subscribe((data:Data[]) => {
+    this.ngo_email=localStorage.getItem('ngo_email');
+    this.transactionService.getAllTransactionTotalByNopName(this.ngo_email).subscribe((data:Data[]) => {
       console.log(data);
       this.transactiontotal_arr = data;
       data.forEach(x => {  

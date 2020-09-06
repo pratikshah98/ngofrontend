@@ -19,29 +19,38 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   //dataSource: MatTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['pay_to_ngo_email', 'ngo_name','ngo_contact','Total_Amt'];
+  displayedColumns = ['donor_email', 'donor_name','donor_contact','donor_PAN_no','transaction_amt','transaction_date'];
   nop_arr:Data[]=[];
   transaction_arr:Data[]=[];
   dataSource = new MatTableDataSource();
+  fk_nop_name:string;
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  ngo_email:string="vrudavan@gmail.com";
+  ngo_email:string;
   constructor(private LoginService:RegistrationService,private Transaction_Service:TransactionService) { }
   onclick(){}
-  onNopName(name){
-    console.log(name);
-    this.Transaction_Service.getAllTransactionByNopName(name).subscribe((data:Data[]) => {
-      console.log(data);
-      this.transaction_arr = data;
-      
-      console.log(data);
-      this.dataSource.data = this.transaction_arr;
-    });
-  }
-  onall()
+  selectChangeHandler(event)
   {
-    this.Transaction_Service.getAllTransactionByAllNopName().subscribe((data:Data[]) => {
+    this.fk_nop_name=event.target.value;
+    
+       // alert(this.fk_nop_name);    
+        this.Transaction_Service.getAllTransactionByNopName(this.fk_nop_name,this.ngo_email).subscribe((data:Data[]) => {
+          console.log(data);
+          this.transaction_arr = data;
+          
+          console.log(data);
+          this.dataSource.data = this.transaction_arr;
+        });
+      
+    
+  
+  
+  }
+  
+   onall()
+  {
+    this.Transaction_Service.getAllTransactionByAllNopName(this.ngo_email).subscribe((data:Data[]) => {
       console.log(data);
       this.transaction_arr = data;
       
@@ -50,7 +59,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     });
   }
   ngOnInit() {
-   //this.ngo_email=localStorage.getItem('ngo_email');
+   this.ngo_email=localStorage.getItem('ngo_email');
     this.dataSource.paginator = this.paginator;
      this.dataSource.sort = this.sort;
     this.LoginService.getallnop().subscribe((data:Data[]) => {
@@ -58,14 +67,12 @@ export class DataTableComponent implements AfterViewInit, OnInit {
       this.nop_arr = data;
       
       console.log(data);
-      //this.dataSource.data = this.nop_arr;
+  
     });
     this.onall();
   }
 
   ngAfterViewInit() {
-    //this.dataSource.sort = this.sort;
-    //this.dataSource.paginator = this.paginator;
-    //this.table.dataSource = this.dataSource;
+ 
   }
 }

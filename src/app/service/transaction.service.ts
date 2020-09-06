@@ -10,19 +10,19 @@ export class TransactionService {
   private transactionbyallnop='http://localhost:3000/trancationbyallnop/';
  
   constructor(private _http:HttpClient) { }
-  getAllTransactionByNopName(nop_name)
+  getAllTransactionByNopName(nop_name,ngo_email)
   {
     //console.log(ngo_email+nop_name);
-    return this._http.get(this.transaction_url +nop_name);
+    return this._http.get(this.transaction_url + nop_name + "/" + ngo_email);
   }
-  getAllTransactionTotalByNopName()
+  getAllTransactionTotalByNopName(ngo_email)
   {
     //console.log(ngo_email+nop_name);
-    return this._http.get(this.transactiontotal_url );
+    return this._http.get(this.transactiontotal_url+ngo_email );
   }
-  getAllTransactionByAllNopName()
+  getAllTransactionByAllNopName(ngo_email)
   {
     //console.log(ngo_email+nop_name);
-    return this._http.get(this.transactionbyallnop );
+    return this._http.get(this.transactionbyallnop+ngo_email );
   }
 }
