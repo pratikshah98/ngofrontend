@@ -22,6 +22,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ChartComponent } from './chart/chart.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { DetaileventComponent } from './detailevent/detailevent.component';
 
 
 
@@ -36,6 +37,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     ChartComponent,
     ViewprofileComponent,
     EditprofileComponent,
+    DetaileventComponent,
 
   ],
   imports: [

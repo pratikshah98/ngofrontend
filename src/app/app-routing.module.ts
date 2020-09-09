@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ChartComponent } from './chart/chart.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { DetaileventComponent } from './detailevent/detailevent.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,9 @@ const routes: Routes = [
   {path:'tables',component:DataTableComponent},
   {path:'charts',component:ChartComponent},
   {path:'viewprofile',component:ViewprofileComponent},
-  {path:'editprofile',component:EditprofileComponent}
+  {path:'editprofile',component:EditprofileComponent},
+  {path:'detailevent',component:DetaileventComponent},
+  
 ]}
 ];
 

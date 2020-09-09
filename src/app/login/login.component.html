@@ -1,4 +1,4 @@
-<div class="page-content" style="height:657px;">
+<div class="page-content" style="height:676px;" style="position:fixed;">
   <div class="form-v1-content">
     <div class="wizard-form">
 
@@ -7,7 +7,7 @@
       <section>
         <div class="inner">
 
-          <form (ngSubmit)="addform(f)" #f="ngForm" style="height:300px;margin-left: 10%;margin-right: 10%;margin-top:10%; margin-bottom: 10%;">
+          <form (ngSubmit)="addform(f)" #f="ngForm" style="height:400px; margin-left: 10%;margin-right: 10%;margin-top:10%; margin-bottom: 10%; width:400px;">
             <p style="text-align: center;"><b>LOGIN</b></p>
             <div class="form-row">
               <div class="form-holder form-holder-2">
@@ -27,8 +27,8 @@
                 <fieldset>
                   <legend>Your Password </legend>
                   <!-- <input type="password" placeholder="Your Password" class="form-control" required [(ngModel)]="ngo_password" name="ngo_password"> -->
-                  <input  #password="ngModel" type="password" [(ngModel)]="ngo_password" class="form-control" name="ngo_password" placeholder="Password" [class.is-invalid]="password.invalid && password.touched" required>
-                  <!-- pattern="^(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"> -->
+                  <input  #password="ngModel" type="password" [(ngModel)]="ngo_password" class="form-control" name="ngo_password" placeholder="Password" [class.is-invalid]="password.invalid && password.touched" required
+                   pattern="^(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"> 
                
                 </fieldset>
                    <!-- <span *ngIf="password.errors && (password.invalid || password.touched) && password.errors.pattern">Please enter a minimum 8 to 10 character Password.</span> -->
@@ -71,88 +71,3 @@
 
 
 
-<!-- <div class="login-16" >
-    <div class="container">
-        <div class="row login-box">
-            <div class="col-lg-5 col-md-12 bg-img none-992 align-self-center">
-                <div class="info" style=" width:40%; height:600px;">
-                    <div class="logo clearfix">
-                        <a href="login-16.html">
-                            <img src="assets/img/logos/logo.png" alt="logo">
-                        </a>
-                    </div>
-                    <div class="btn-section clearfix">
-                        <a routerLink="/" class="link-btn active btn-1 default-bg">Login</a>
-                        <div class="clearfix"></div>
-                        <a routerLink="/signup" class="link-btn btn-1" >Register</a>
-                    </div>
-                    <ul class="social-list">
-                        <li>
-                            <a href="#" class="facebook-bg">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="twitter-bg">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="google-bg">
-                                <i class="fa fa-google"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="linkedin-bg">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="pinterest-bg">
-                                <i class="fa fa-pinterest"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-12 bg-color-8 align-self-center">
-                <div class="form-section">
-                    <div class="logo-2 clearfix">
-                        <a href="login-16.html">
-                            <img src="assets/img/logos/logo-2.png" alt="logo">
-                        </a>
-                    </div>
-                    <h3>Sign into your account</h3>
-                    <div class="login-inner-form">
-                        <form (ngSubmit)="addform(f)" #f="ngForm">
-                            <div class="form-group form-box">
-
-                                <input type="email" name="ngo_email" class="form-control1" placeholder="Email Address" [(ngModel)]="ngo_email" style="margin-left:22px;width:93%;">
-                                <i class="flaticon-mail-2"></i>
-                            </div>
-
-                            <div class="form-group form-box">
-                                <input type="password" name="ngo_password" class="form-control1" placeholder="Password" [(ngModel)]="ngo_password" style="margin-left:22px;width:93%;">
-                                <i class="flaticon-password"></i>
-                            </div>
-                            <div class="checkbox clearfix">
-                                <div class="form-check checkbox-theme">
-                                    <input class="form-check-input" type="checkbox" value="" id="rememberMe">
-                                    <label class="form-check-label" for="rememberMe">
-                                        Remember me
-                                    </label>
-                                </div>
-                                <a routerLink="/forget">Forgot Password</a>
-                            </div>
-                            <div class="form-group mb-0">
-                                <button type="submit" class="btn-md btn-theme btn-block" (click)="onSubmit()">Login</button>
-                            </div>
-                            <p class="text">Don't have an account?<a routerLink="/signup"> Register here</a></p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
- -->

@@ -21,10 +21,7 @@
                                 pattern="[a-zA-Z ]{3,}" disabled="true">
   
                       </fieldset>
-                      <!-- <div class="form-group">
-                        <span *ngIf="ngoname.errors && (ngoname.invalid || ngoname.touched) && ngoname.errors.pattern">Please enter a valid Name.</span>
-                        <span *ngIf="ngoname.errors && (ngoname.invalid && ngoname.touched) && ngoname.errors.required">Name is required.</span>
-                      </div> -->
+                   
                     </div>
                     <div class="form-holder">
                       <fieldset>
@@ -182,51 +179,7 @@
                     </label>
   
                   </div>
-                  <!-- <ng-container [formGroup]="form">
-                  <div class="form-group" #arrofnop="ngModel" [(ngModel)]="arr" [class.is-invalid]="arrofnop.invalid && arrofnop.touched"
-                       *ngFor="let item of arr">
-                    <span *ngIf="arrofnop.errors && (arrofnop.invalid && arrofnop.touched) && arrofnop.errors.required">Please select atleast 1 Nature of Product.</span>
-                    <span *ngIf="!(arr?.length > 0)">Please select atleast 1 Nature of Product.</span>
-                  </div>
-                </ng-container> -->
-  
-  
-                <!-- <ng-container [formGroup]="form">
-                    <div class="custom-control custom-checkbox">
-                      <mat-checkbox class="form-group" formGroupName="myCheckboxGroup" formControlName="checkbox1" id="checkbox1" *ngFor="let item of arr">
-                      </mat-checkbox>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <mat-checkbox class="form-group" formGroupName="myCheckboxGroup" formControlName="checkbox2" id="checkbox2" *ngFor="let item of arr">
-                      </mat-checkbox>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <mat-checkbox class="form-group" formGroupName="myCheckboxGroup" formControlName="checkbox3" id="checkbox3" *ngFor="let item of arr">
-                      </mat-checkbox>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <mat-checkbox class="form-group" formGroupName="myCheckboxGroup" formControlName="checkbox4" id="checkbox4" *ngFor="let item of arr">
-                      </mat-checkbox>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <mat-checkbox class="form-group" formGroupName="myCheckboxGroup" formControlName="checkbox5" id="checkbox5" *ngFor="let item of arr">
-                      </mat-checkbox>
-                    </div>
-                  </ng-container> -->
-  
-  
-                  <!-- <div formArrayName="'items'">
-                    <div *ngFor="let control of form.controls.items.controls; let i = index;" [formGroup]="control">
-                      <input type="checkbox" formControlName="checkbox" id="{{ control.controls.id.value }}">
-                      <label attr.for="{{ control.controls.id.value }}">{{ control.controls.text.value }}</label>
-                    </div>
-                  </div>
-                  <div [class.invalid]="!form.controls.selectedItems.valid" *ngIf="!form.controls.selectedItems.valid">
-                    checkbox group is required!
-                  </div>
-                  <hr>
-                  <pre>{{form.controls.selectedItems.value | json}}</pre> -->
-  
+                  
   
                   <div>
                     <button mat-button matStepperNext (click)="onSubmit1()"  id="btn_green" type="submit" class="btn"

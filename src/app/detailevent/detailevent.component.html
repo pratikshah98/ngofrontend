@@ -1,0 +1,97 @@
+<div class="page-content" >
+    <div class="form-v1-content">
+      <div class="wizard-form">
+
+
+
+        <section>
+          <div class="inner">
+
+            <form (ngSubmit)="addform(f)" #f="ngForm" style="height:430px; margin-left: 10%;margin-right: 10%;margin-top:10%; margin-bottom: 10%; width:450px;">
+              <p style="text-align: center;"><b>EVENT PAGE</b></p>
+              <div class="form-row">
+                <div class="form-holder form-holder-2">
+                  <fieldset>
+                    <legend>Nop Name </legend>
+                    <select  #fknopname="ngModel" [(ngModel)]="fk_nop_name" name="fk_nop_name" (change)="selectChangeHandler($event)" class="form-control" *ngFor="let item of ngodetail_arr"  
+
+                    [class.is-invalid]="fknopname.invalid && fknopname.touched"  required>
+                    <option *ngFor="let subngodetail of item.fk_ngo_nop_name?.split(',')" [value]="subngodetail" >{{subngodetail}}</option>
+
+                    <!-- <span *ngIf="fknopname.errors && (fknopname.invalid || fknopname.touched) && fknopname.errors.pattern">Please enter a valid Amount.</span> -->
+                    <span *ngIf="fknopname.errors && (fknopname.invalid && fknopname.touched) && fknopname.errors.required" style="color:red; font-size:14px;" >Amount is required.</span>
+
+                    </select>
+
+                  </fieldset>
+                             
+               </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-holder form-holder-2">
+                  <fieldset>
+                    <legend>Event Date </legend>
+                    <input  #date11="ngModel" type="date" [(ngModel)]="date1" class="form-control" name="date1" placeholder="Date" [class.is-invalid]="date11.invalid && date11.touched" required>
+               
+                  </fieldset>
+                     <span *ngIf="date11.errors && (date11.invalid && date11.touched) && date11.errors.required" style="color:red; font-size:14px;">Date is required.</span> 
+
+                </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-holder form-holder-2">
+                  <fieldset>
+                    <legend>Event Place </legend>
+                    <input  #place1="ngModel" type="text" [(ngModel)]="place" class="form-control" name="place" placeholder="Place" [class.is-invalid]="place1.invalid && place1.touched" required
+                    pattern="[a-zA-Z ]{3,}">
+
+                  </fieldset>
+                     <span *ngIf="place1.errors && (place1.invalid || place1.touched) && place1.errors.pattern" style="color:red; font-size:14px;">Please enter a Valid City Name.</span> 
+                     <span *ngIf="place1.errors && (place1.invalid && place1.touched) && place1.errors.required" style="color:red; font-size:14px;">Place is required.</span>
+
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-holder form-holder-2">
+                  <fieldset>
+                    <legend>Event Time </legend>
+                    <input  #time1="ngModel" type="time" [(ngModel)]="time" class="form-control" name="time" placeholder="Time" [class.is-invalid]="time1.invalid && time1.touched" required>
+               
+                  </fieldset>
+                     <span *ngIf="time1.errors && (time1.invalid && time1.touched) && time1.errors.required" style="color:red; font-size:14px;">Time is required.</span>
+
+                </div>
+              </div>
+
+              <div class="form-group mb-0">
+                <button type="submit" class="btn-md btn-theme btn-block"
+                  (click)="onSubmit()" style="width:100%;background-color: green;border-radius: 5px;color:#fff;" [disabled]="f.invalid"><b>SUBMIT</b></button>
+              </div>
+              <br>
+
+
+
+            </form>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
