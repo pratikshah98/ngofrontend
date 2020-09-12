@@ -212,18 +212,20 @@
                   <ng-template matStepLabel>Fill out your address</ng-template>
                   <p>Please View Desciption Detail</p>
 
-                  <div class="form-row" *ngFor="let item of viewprofile_arr">
+                  <div class="form-row" *ngFor="let item of viewprofile_arr;let i=index">
                     <div class="form-holder form-holder-2">
                       <fieldset>
-                        <legend>Description Of {{item.fk_nop_name}}</legend>
+                        <legend >Description Of {{item.fk_nop_name}}</legend>
                         <textarea class="form-control" type="text" style="border: 0px;" [(ngModel)]="nop_description"
                           class="form-control"  cols="50" rows="7" placeholder="Enter Description About" (change)="Editdescription($event,i)" >{{item.nop_description}}
                         </textarea>
                         <legend>Proof Image</legend>
-                        <input #proofimage="ngModel" [(ngModel)]="proof_image" type="file" placeholder="Proof Image" (change)="onproof($event)"
+                        <input #proofimage="ngModel"  [(ngModel)]="proof_image" type="file" placeholder="Proof Image" (change)="onproof($event)"
                           class="form-control" required  selectedFile="proof_image" [class.is-invalid]="proofimage.invalid && proofimage.touched" >
                           <img src="{{'http://localhost:3000/proof_images/'+item.proof_image}}" style="height:90px; width:200px; zoom:120%; " >
-
+                          <!-- <input #proofimage="ngModel" *ngif="item.proofimage==false" [(ngModel)]="proof_image" type="file" placeholder="Proof Image" (change)="onproof($event)"
+                          class="form-control" required  selectedFile="proof_image" [class.is-invalid]="proofimage.invalid && proofimage.touched" > -->
+                      
                       </fieldset>
                       <div class="form-group">
                         <!-- <span *ngIf="proofimage.errors && (proofimage.invalid && proofimage.touched) && proofimage.errors.required">Please select an Image.</span> -->

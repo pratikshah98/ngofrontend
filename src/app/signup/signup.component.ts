@@ -40,6 +40,8 @@ export class SignupComponent implements OnInit {
 
 
   selectedfile:File=null;
+  selectedfile1:File=null;
+
   files:File=null;
 
   proof_image:File[]=[];
@@ -124,9 +126,9 @@ export class SignupComponent implements OnInit {
   onproof(value)
   {
 
-    this.selectedfile=<File>value.target.files[0];
+    this.selectedfile1=<File>value.target.files[0];
     //console.log(this.selectedfile.name);
-    this.proof_image.push(this.selectedfile);
+    this.proof_image.push(this.selectedfile1);
     //console.log(this.proof_image);
   }
   onselect(value)
@@ -180,13 +182,13 @@ export class SignupComponent implements OnInit {
 
     console.log(this.ngo_email,this.contact_for_donor,this.ngo_website,this.ngo_facebook,this.ngo_instagram,this.ngo_twitter);
 
-    var fd2=new FormData();
-    fd2.append('fk_ngo_email',this.ngo_email);
-    fd2.append('contact_for_donor',this.contact_for_donor);
-    fd2.append('ngo_website',this.ngo_website);
-    fd2.append('ngo_facebook',this.ngo_facebook);
-    fd2.append('ngo_instagram',this.ngo_instagram);
-    fd2.append('ngo_twitter',this.ngo_twitter);
+  var fd2=new FormData();
+  fd2.append('fk_ngo_email',this.ngo_email);
+  fd2.append('contact_for_donor',this.contact_for_donor);
+  fd2.append('ngo_website',this.ngo_website);
+  fd2.append('ngo_facebook',this.ngo_facebook);
+  fd2.append('ngo_instagram',this.ngo_instagram);
+  fd2.append('ngo_twitter',this.ngo_twitter);
 
     // this._registrationservice.add_final_details(fd2).subscribe(
     // (data:any)=>{
@@ -197,7 +199,7 @@ export class SignupComponent implements OnInit {
       (data:register3[])=>{
         console.log(data);
         alert('record addaed succesfully.')
-        this._route.navigate(['/ ']);
+        this._route.navigate(['/']);
       }
       );
   }

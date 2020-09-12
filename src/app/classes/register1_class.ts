@@ -7,7 +7,7 @@ export class register1
     public ngo_email:string,
     public ngo_password:string,
     public ngo_contact:string,
-    public paytm_merchant_id:string,
+    //public paytm_merchant_id:string,
     public ngo_address:string,
     public ngo_landmark:string,
     public ngo_city:string,
