@@ -18,6 +18,7 @@ export class RegistrationService {
   private nop:string='http://localhost:3000/nop/';
   private register3_url:string='http://localhost:3000/register3/';
   private viewprofile:string='http://localhost:3000/viewprofile/';
+  private updateprofile1_url='http://localhost:3000/updateprofile1/;'
   constructor(private _http:HttpClient) { }
   // getLogin(item:ngo){
   //   let body=JSON.stringify(item);
@@ -35,6 +36,10 @@ export class RegistrationService {
     // let head1=new HttpHeaders().set('Content-Type','application/json');
     console.log(item);
     return this._http.post(this.register1_url,item);
+  }
+  updateprofile1(item)
+  {
+    return this._http.put(this.updateprofile1_url,item);
   }
   add_nop_description(item:FormData)
   {

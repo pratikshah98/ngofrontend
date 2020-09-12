@@ -25,38 +25,38 @@ export class EditprofileComponent implements OnInit {
   ngo_state:string;
   ngo_pincode:string;
   ngo_nop_name:string;
-  
+
   contact_for_donor:string;
   ngo_website:string;
   ngo_facebook:string;
   ngo_twitter:string;
   ngo_instagram:string;
-  
+
   fk_nop_name:string;
   selectedfile:File=null;
   files:File=null;
-  
+  flag:number=0;
   proof_image:File[]=[];
   nop_description:string[]=[];
   //part2:register2[]=null;
   arr:string[]=[];
   i:number=0;
   nop_arr:any=null;
-  flag:number=0;
+
   fk_ngo_nop_name:string="";
   nop_name:string;
   //form: FormGroup;
-  
+
   ngOnInit(): void {
     this._registrationservice.getallnop().subscribe(
       (data:any)=>{
-    
+
         this.nop_arr=data;
-    
-    
+
+
       }
       );
-    
+
   this.ngo_email=localStorage.getItem('ngo_email');
   this._registrationservice.viewprofileByNgoId(this.ngo_email).subscribe(
     (data:any)=>{
@@ -85,16 +85,50 @@ export class EditprofileComponent implements OnInit {
       this.ngo_twitter=data[0].ngo_twitter;
       this.fk_ngo_nop_name=data[0].fk_ngo_nop_name;
       this.fk_nop_name=data[0].fk_nop_name;
-      console.log(this.fk_nop_name);
+      for(var j=0;j<this.viewprofile_arr.length;j++)
+      {
+        this.arr.push(data[j].fk_nop_name);
+        this.proof_image.push(data[j].proof_image);
+      }
+      console.log(this.arr);
+      console.log(this.proof_image);
     }
+
     )
+
   }
 
   onSubmit1(){}
  onSubmit2(){
-  
+
  }
- onSubmit3(){}
+ onSubmit3()
+ {
+  var fd=new FormData();
+  fd.append('ngo_name',this.ngo_name);
+  fd.append('ngo_logo',this.selectedfile,this.ngo_logo);
+  fd.append('ngo_registration_no',this.ngo_registration_no);
+  fd.append('ngo_email',this.ngo_email);
+  fd.append('ngo_password',this.ngo_password);
+  fd.append('ngo_contact',this.ngo_contact);
+  fd.append('paytm_merchant_id',this.paytm_merchant_id);
+  fd.append('ngo_address',this.ngo_address);
+  fd.append('ngo_landmark',this.ngo_landmark);
+  fd.append('ngo_city',this.ngo_city);
+  fd.append('ngo_state',this.ngo_state);
+  fd.append('ngo_pincode',this.ngo_pincode);
+  fd.append('fk_ngo_nop_name',this.fk_ngo_nop_name);
+
+  this._registrationservice.updateprofile1(fd).subscribe(
+    (data:any[])=>
+    {
+
+      console.log(data);
+      //localStorage.setItem('ngo_email',this.ngo_email);
+
+    }
+    );
+ }
  onproof(value)
  {
 
