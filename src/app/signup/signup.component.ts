@@ -196,6 +196,8 @@ export class SignupComponent implements OnInit {
     this._registrationservice.add_final_details(new register3(this.ngo_email,this.contact_for_donor,this.ngo_website,this.ngo_facebook,this.ngo_instagram,this.ngo_twitter)).subscribe(
       (data:register3[])=>{
         console.log(data);
+        alert('record addaed succesfully.')
+        this._route.navigate(['/ ']);
       }
       );
   }
@@ -227,6 +229,6 @@ export class SignupComponent implements OnInit {
       this.fk_ngo_nop_name=this.arr.toString();
     }
 
-  }
+}
   addform(f){}
 }

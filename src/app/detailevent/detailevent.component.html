@@ -15,7 +15,7 @@
                     <legend>Nop Name </legend>
                     <select  #fknopname="ngModel" [(ngModel)]="fk_nop_name" name="fk_nop_name" (change)="selectChangeHandler($event)" class="form-control" *ngFor="let item of ngodetail_arr"  
 
-                    [class.is-invalid]="fknopname.invalid && fknopname.touched"  required>
+                    [class.is-invalid]="fknopname.invalid && fknopname.touched"  required style="border:none; height:40px; width:300px;">
                     <option *ngFor="let subngodetail of item.fk_ngo_nop_name?.split(',')" [value]="subngodetail" >{{subngodetail}}</option>
 
                     <!-- <span *ngIf="fknopname.errors && (fknopname.invalid || fknopname.touched) && fknopname.errors.pattern">Please enter a valid Amount.</span> -->

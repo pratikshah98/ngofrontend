@@ -64,7 +64,7 @@ place:string;
    
   addform(f)
   {
-    //f.resetForm();
+    f.resetForm();
   }
   selectChangeHandler(event)
   {

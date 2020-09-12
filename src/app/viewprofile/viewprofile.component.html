@@ -10,7 +10,7 @@
                 <mat-step>
                 <form (ngSubmit)="addform(f)" #f="ngForm">
                   <ng-template matStepLabel>Basic Details</ng-template>
-                  <p>Please fill with your details</p>
+                  <p>Please View your details</p>
                   <div class="form-row">
                     <div class="form-holder">
                       <fieldset>
@@ -26,12 +26,14 @@
                     <div class="form-holder">
                       <fieldset>
                         <legend>NGO LOGO</legend>
-                        <input class="form-control" #ngologo="ngModel" [(ngModel)]="ngo_logo" type="file" placeholder="Ngo Logo" (change)="onselect($event)"
+                        <!-- <input class="form-control" #ngologo="ngModel" [(ngModel)]="ngo_logo" type="file" placeholder="Ngo Logo" (change)="onselect($event)"
                         [class.is-invalid]="ngologo.invalid && ngologo.touched" required name="ngo_logo" selectedFile="ngo_logo" disabled="true">
                       </fieldset>
                       <div class="form-group">
                         <span *ngIf="ngologo.errors && (ngologo.invalid && ngologo.touched) && ngologo.errors.required">Please select an Image.</span>
-                      </div>
+                      </div> -->
+                      <img src="{{'http://localhost:3000/logo_images/'+ngo_logo}}" style="height:40px; width:120px; zoom:120%; " >
+                    </fieldset>
                     </div>
                   </div>
   
@@ -86,7 +88,7 @@
                     </div>
                   </div>
   
-                  <div class="form-row">
+                  <!-- <div class="form-row">
                     <div class="form-holder form-holder-2">
                       <fieldset>
                         <legend>PAYTM Registration No. </legend>
@@ -99,7 +101,7 @@
                         <span *ngIf="paytm.errors && (paytm.invalid && paytm.touched) && paytm.errors.required">Merchant ID is required.</span>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
   
                   <p style="text-align: center;"><b>ADDRESS DETAILS</b></p>
   
@@ -194,21 +196,23 @@
                    <mat-step>
                     <form >
                   <ng-template matStepLabel>Fill out your address</ng-template>
-                  <p>Please fill with Desciption Detail</p>
+                  <p>Please View Desciption Detail</p>
   
                   <div class="form-row" *ngFor="let item of viewprofile_arr">
                     <div class="form-holder form-holder-2">
                       <fieldset>
                         <legend>Description Of {{item.fk_nop_name}}</legend>
                         <textarea class="form-control" type="text" style="border: 0px;" [(ngModel)]="nop_description" 
-                          class="form-control" cols="50" rows="15" placeholder="Enter Description About" (change)="Editdescription($event,i)" disabled="true">{{item.nop_description}}
+                          class="form-control"  cols="50" rows="7" placeholder="Enter Description About" (change)="Editdescription($event,i)" disabled="true">{{item.nop_description}}
                         </textarea>
                         <legend>Proof Image</legend>
-                        <input #proofimage="ngModel" [(ngModel)]="proof_image" type="file" placeholder="Proof Image" (change)="onproof($event)" 
-                          class="form-control" required  selectedFile="proof_image" [class.is-invalid]="proofimage.invalid && proofimage.touched" disabled="true">
+                        <!-- <input #proofimage="ngModel" [(ngModel)]="proof_image" type="file" placeholder="Proof Image" (change)="onproof($event)" 
+                          class="form-control" required  selectedFile="proof_image" [class.is-invalid]="proofimage.invalid && proofimage.touched" disabled="true"> -->
+                          <img src="{{'http://localhost:3000/proof_images/'+item.proof_image}}" style="height:90px; width:200px; zoom:120%; " >
+ 
                       </fieldset>
                       <div class="form-group">
-                        <span *ngIf="proofimage.errors && (proofimage.invalid && proofimage.touched) && proofimage.errors.required">Please select an Image.</span>
+                        <!-- <span *ngIf="proofimage.errors && (proofimage.invalid && proofimage.touched) && proofimage.errors.required">Please select an Image.</span> -->
                       </div>
                     </div>
                   </div>
@@ -226,7 +230,7 @@
   
                   <ng-template matStepLabel>Contact information</ng-template>
   
-                  <p>Please fill More Information</p>
+                  <p>Please View More Information</p>
                   <div class="form-row">
                     <div class="form-holder form-holder-2">
                       <fieldset>
